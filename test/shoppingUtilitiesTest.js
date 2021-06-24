@@ -14,4 +14,118 @@ describe('calculateShoppingCart', function () {
 
         assert.strictEqual(calculateShoppingCart(cart), 8)
     })
+
+    it('2 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 15.2)
+    })
+
+    it('3 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 21.6)
+    })
+
+    it('4 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 25.6)
+    })
+
+    it('5 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 30)
+    })
+
+    it('2 same books', function () {
+        var cart = {
+            'book1': 2
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 16)
+    })
+
+    it('3 same books', function () {
+        var cart = {
+            'book1': 3
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 24)
+    })
+
+    it('2 same books and 1 different book', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 23.2)
+    })
+
+    it('2 same books and 2 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 29.6)
+    })
+
+    it('2 same books and 3 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 33.6)
+    })
+
+    it('2 same books and 4 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 38)
+    })
+
+    it('2 book1, 2 book2, 1 book3, 1 book4, 1 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 45.2)
+    })
+
+    
 })
