@@ -1,0 +1,17 @@
+{
+  "name": "buying-harry-potter-books",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "shoppingUtilities.js",
+  "scripts": {
+    "test": "mocha --experimental-modules"
+  },
+  "author": "Jean Tiston",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "esm": "^3.2.25",
+    "mocha": "^7.2.0"
+  }
+}
