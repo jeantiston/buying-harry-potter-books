@@ -1,4 +1,5 @@
 const discounts = {
+    1: 1,
     2: 0.95,
     3: 0.9,
     4: 0.8,
@@ -27,19 +28,9 @@ export const createSets = cart => {
 export const calculateShoppingCart = cart => {
     var sets = createSets(cart)
 
-    var total = 0
-
-    for (var i of sets) {
-        console.log(i)
-        var subtotal = i * unitPrice
-
-        if (i > 1) {
-            subtotal *= discounts[i]
-        }
-
-        total += subtotal
-
-    }
+    var total = sets.reduce( (total, numberOfBooks) => {
+        return total + (numberOfBooks * unitPrice * discounts[numberOfBooks])
+    }, 0)
 
     return total
 }
