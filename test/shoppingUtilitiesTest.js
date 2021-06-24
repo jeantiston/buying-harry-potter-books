@@ -127,5 +127,41 @@ describe('calculateShoppingCart', function () {
         assert.strictEqual(calculateShoppingCart(cart), 45.2)
     })
 
+    it('2 book1, 2 book2, 2 book3, 1 book4, 1 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 2,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 51.6)
+    })
+
+    it('2 book1, 2 book2, 2 book3, 2 book4, 2 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 2,
+            'book4': 2,
+            'book5': 2
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 60)
+    })
+
+    it('3 book1, 3 book2, 2 book3, 2 book4, 2 book5', function () {
+        var cart = {
+            'book1': 3,
+            'book2': 3 ,
+            'book3': 2,
+            'book4': 2,
+            'book5': 2
+        }
+
+        assert.strictEqual(calculateShoppingCart(cart), 75.2)
+    })
+
     
 })
