@@ -7,9 +7,7 @@ const discounts = {
 
 const unitPrice = 8
 
-const calculateShoppingCart = cart => {
-    var total = 0
-
+export const createSets = cart => {
     var sets = []
 
     for (var key in cart) {
@@ -22,6 +20,14 @@ const calculateShoppingCart = cart => {
             }
         }
     }
+
+    return sets
+}
+
+export const calculateShoppingCart = cart => {
+    var sets = createSets(cart)
+
+    var total = 0
 
     for (var i of sets) {
         console.log(i)
@@ -37,5 +43,3 @@ const calculateShoppingCart = cart => {
 
     return total
 }
-
-export default calculateShoppingCart

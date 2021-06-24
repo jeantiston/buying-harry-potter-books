@@ -1,5 +1,5 @@
 import { assert } from "chai"
-import calculateShoppingCart from '../shoppingUtilities.js'
+import { calculateShoppingCart, createSets}  from '../shoppingUtilities.js'
 
 describe('calculateShoppingCart', function () {
     it('check that it returns a number', function () {
@@ -176,4 +176,179 @@ describe('calculateShoppingCart', function () {
     })
 
     
+})
+
+describe('createSets', function () {
+    it('check that it returns an array', function () {
+        assert.isArray(createSets())
+    })
+
+    it('1 book', function () {
+        var cart = {
+            'book1': 1
+        }
+
+        assert.deepEqual(createSets(cart), [1])
+    })
+
+    it('2 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1
+        }
+
+        assert.deepEqual(createSets(cart), [2])
+    })
+
+    it('3 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1
+        }
+
+        assert.deepEqual(createSets(cart), [3])
+    })
+
+    it('4 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1
+        }
+
+        assert.deepEqual(createSets(cart), [4])
+    })
+
+    it('5 different books', function () {
+        var cart = {
+            'book1': 1,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.deepEqual(createSets(cart), [5])
+    })
+    
+    it('2 same books', function () {
+        var cart = {
+            'book1': 2
+        }
+
+        assert.deepEqual(createSets(cart), [1, 1])
+    })
+
+    it('3 same books', function () {
+        var cart = {
+            'book1': 3
+        }
+
+        assert.deepEqual(createSets(cart), [1, 1, 1])
+    })
+
+    it('2 same books and 1 different book', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1
+        }
+
+        assert.deepEqual(createSets(cart), [2, 1])
+    })
+
+    it('2 same books and 2 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1
+        }
+
+        assert.deepEqual(createSets(cart), [3, 1])
+    })
+
+    it('2 same books and 3 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1
+        }
+
+        assert.deepEqual(createSets(cart), [4, 1])
+    })
+
+    it('2 same books and 4 different books', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 1,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.deepEqual(createSets(cart), [5, 1])
+    })
+
+    it('2 book1, 2 book2, 1 book3, 1 book4, 1 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 1,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.deepEqual(createSets(cart), [5, 2])
+    })
+
+    it('2 book1, 2 book2, 2 book3, 1 book4, 1 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 2,
+            'book4': 1,
+            'book5': 1
+        }
+
+        assert.deepEqual(createSets(cart), [5, 3])
+    })
+
+    it('2 book1, 2 book2, 2 book3, 2 book4, 2 book5', function () {
+        var cart = {
+            'book1': 2,
+            'book2': 2 ,
+            'book3': 2,
+            'book4': 2,
+            'book5': 2
+        }
+
+        assert.deepEqual(createSets(cart), [5, 5])
+    })
+
+    it('3 book1, 3 book2, 2 book3, 2 book4, 2 book5', function () {
+        var cart = {
+            'book1': 3,
+            'book2': 3 ,
+            'book3': 2,
+            'book4': 2,
+            'book5': 2
+        }
+
+        assert.deepEqual(createSets(cart), [5, 5, 2])
+    })
+
+    it('3 book1, 3 book2, 2 book3, 2 book4, 3 book5', function () {
+        var cart = {
+            'book1': 3,
+            'book2': 3 ,
+            'book3': 2,
+            'book4': 2,
+            'book5': 3
+        }
+
+        assert.deepEqual(createSets(cart), [5, 5, 3])
+    })
+
 })
